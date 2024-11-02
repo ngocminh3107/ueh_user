@@ -67,12 +67,15 @@ const EventsHomePage: React.FC = () => {
         return () => clearInterval(intervalId); // Cleanup on unmount
     }, [items.length]);
 
-    // Lấy các chỉ số hình ảnh hiện tại và hai hình ảnh bên trái và bên phải
-    const getVisibleItems = (): EventItem[] => {
+    const getVisibleItems = (): { item: EventItem; position: "prev" | "current" | "next" }[] => {
         const prevIndex = (currentIndex - 1 + items.length) % items.length;
         const nextIndex = (currentIndex + 1) % items.length;
 
-        return [items[prevIndex], items[currentIndex], items[nextIndex]];
+        return [
+            { item: items[prevIndex], position: "prev" },
+            { item: items[currentIndex], position: "current" },
+            { item: items[nextIndex], position: "next" },
+        ];
     };
 
     const visibleItems = getVisibleItems();
@@ -90,18 +93,21 @@ const EventsHomePage: React.FC = () => {
                 </div>
             </div>
 
-            <div className="flex items-center justify-center">
-                {visibleItems.map((item) => (
+            <div className="flex items-center justify-center space-x-4">
+                {visibleItems.map(({ item, position }) => (
                     <div
                         key={item.id}
-                        className="w-100 mx-2 flex flex-col items-center transition-transform duration-500 ease-in-out"
+                        className={`transition-transform duration-500 ease-in-out ${
+                            position === "current" ? "scale-100 opacity-100" : "scale-75 opacity-50"
+                        }`}
+                        style={{ width: position === "current" ? "100%" : "25%" }}
                     >
                         <Image
-                            src={Demo}
+                            src={item.image}
                             alt={item.title}
                             className="h-full w-full rounded-lg object-cover"
                         />
-                        <h3 className="mt-2 text-lg font-semibold">{item.title}</h3>
+                        <h3 className="mt-2 text-lg font-semibold text-center">{item.title}</h3>
                     </div>
                 ))}
             </div>
