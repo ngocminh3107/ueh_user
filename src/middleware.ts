@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { db } from '@/lib/db'
+import { getDataFromToken } from "@/lib/getDatafromtoken";
 
 export function middleware(request: NextRequest) {
     const path = request.nextUrl.pathname
@@ -11,7 +13,6 @@ export function middleware(request: NextRequest) {
     if (!ispublicPath && !token) {
         return NextResponse.redirect(new URL('/login', request.nextUrl))
     }
-
 }
 
 export const config = {
@@ -19,6 +20,9 @@ export const config = {
         '/',
         '/profile',
         '/login',
-        '/signup'
+        '/signup',
+        '/dashboard',
     ],
 }
+
+

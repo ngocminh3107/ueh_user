@@ -47,7 +47,7 @@ const NavHomePage = () => {
         try {
             await axios.get("/api/user/logout");
             toast.success("Logout success");
-            router.push("/");
+            router.push("/login");
         } catch (error: any) {
             console.log("Logout failed", error.message);
             toast.error(error.message);
