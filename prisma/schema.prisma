@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Game {
+  id        String   @id @default(uuid())
+  gameId    String   @unique
+  name      String
+  imageUrl  String   @db.Text
+  price     String   @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId    String
+  libraryId String
+  Library   Library  @relation(fields: [libraryId], references: [libraryId])
+  user      User     @relation(fields: [userId], references: [userId])
+
+  @@index([libraryId])
+  @@index([userId])
+}
+
+model Library {
+  id        String @id @default(uuid())
+  libraryId String @unique
+  nameLib   String
+  Game      Game[]
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+model User {
+  userId    String   @id @default(uuid())
+  name      String
+  password  String
+  imageUrl  String   @db.Text
+  email     String   @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  role      Role     @default(USER)
+  Game      Game[]
+}
