@@ -25,13 +25,12 @@ export async function POST(request: NextRequest) {
         }
 
         const tokenData = {
-            userId: user.userId,
+            id: user.id,
             email: user.email,
             name: user.name,
             role: user.role,
             game: user.imageUrl,
-            createdAt: user.createdAt,
-            updatedAt: user.updatedAt,
+         
         }
         const token = jwt.sign(tokenData, process.env.TOKEN_SECRET!, {
             expiresIn: "3d",

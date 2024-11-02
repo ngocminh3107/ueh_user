@@ -90,7 +90,7 @@ const NavHomeMobilePage = () => {
             try {
                 const res = await axios.get("/api/user/userdata");
                 setData({
-                    id: res.data.data.userId,
+                    id: res.data.data.id,
                     name: res.data.data.name,
                     email: res.data.data.email,
                     imageUrl: res.data.data.imageUrl,

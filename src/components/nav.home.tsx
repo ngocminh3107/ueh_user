@@ -28,47 +28,11 @@ const NavHomePage = () => {
     const pathname = usePathname()
     const dropdownMenuItems = [
         {
-            label: "My Achievements",
-            link: "/achievements",
-        },
-        {
-            label: "Epic rewards",
-            link: "/rewards",
-        },
-        {
-            label: "Epic Wallet",
-            link: "/wallet",
-        },
-        {
-            label: "Coupon",
-            link: "/coupon",
-        },
-        {
             label: "Account",
             link: "/account",
         },
-        {
-            label: "Redeem Code",
-            link: "/redeem",
-        }, {
-            label: "whishlist",
-            link: "/whishlist"
-        }
     ]
-    const navmenu = [
-        {
-            label: "Distribution",
-            link: "/distribution",
-        },
-        {
-            label: "Support",
-            link: "/support",
-        },
-        {
-            label: "Unreal Engine",
-            link: "/unreal-engine",
-        }
-    ]
+  
     const router = useRouter();
     const [data, setData] = useState({
         id: "",
@@ -97,7 +61,7 @@ const NavHomePage = () => {
             try {
                 const res = await axios.get("/api/user/userdata");
                 setData({
-                    id: res.data.data.userId,
+                    id: res.data.data.id,
                     name: res.data.data.name,
                     email: res.data.data.email,
                     imageUrl: res.data.data.imageUrl,
@@ -111,26 +75,15 @@ const NavHomePage = () => {
         getData();
     }, []);
     return (
-        <div className={`flex row  justify-between  items-center px-[24px] py-[20px] ${!open ? "bg-[#101014] fixed top-0 w-full" : "bg-[#18181C] "}`}>
+        <div className={`text-black bg-white flex row  justify-between  items-center px-[24px] py-[20px]`}>
             <div className="flex row items-center">
-                <div className={` translate-x duration-300 ${!open ? "hidden" : ""}`}>
-                    <LogoDropdow />
-                </div>
-                <div className={`mx-0 translate duration-300 xl:mx-6 ${!open ? "mx-0" : "mx-6"}`}>
-                    <Image src={ShopSvg} alt="" />
-                </div>
-                <ul className="row items-center hidden xl:flex ">
-                    {
-                        navmenu.map((item, index) => (
-                            <li key={index} className={`text-[#AAAAAE] text-sm px-4 py-1 rounded-[8px] hover:bg-[#404044] hover:text-[white] ${pathname === item.link ? "bg-[#404044] text-[white]" : ""}`}>
-                                <Link href={item.link}>
-                                    {item.label}
-                                </Link>
-                            </li>
-
-                        ))
-                    }
-                </ul>
+               <div>
+                logo
+               </div>
+               <div>
+                    menu
+               </div>
+                
             </div>
             <div onClick={() => { toggleMenu() }} className="" >
                 <IoMdClose className={`xl:hidden text-[30px] ${open ? "hidden" : ""}`} />
@@ -140,9 +93,7 @@ const NavHomePage = () => {
 
             <div className="hidden row items-center xl:flex ">
                 <div className="flex row dropdown dropdown-bottom items-center justify-center">
-                    <div className="p-2 mr-4 w-[32px] h-[32px]">
-                        <TfiWorld className="text-[20px] p-0 text-[#AAAAAE]" />
-                    </div>
+                   
                     <DropdownMenu>
                         <DropdownMenuTrigger>
                             <div className="p-2 mr-4 items-center justify-center text-center  bg-[#515050] rounded-full">
@@ -169,9 +120,6 @@ const NavHomePage = () => {
                     </DropdownMenu>
 
                 </div>
-                <button className="rounded-[8px] text-sm cursor-pointer px-3 py-1.5 bg-[#26BBFF] text-[black] font-medium first-letter:uppercase ">
-                    download
-                </button>
             </div>
         </div>
     )

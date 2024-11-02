@@ -7,14 +7,12 @@ export async function GET(request: NextRequest){
         const id = await getDataFromToken(request);
         const user = await  db.user.findFirst({
             where:{
-                userId: id
+                id: id
             },
             select:{
-                userId: true,
+                id: true,
                 email: true,
                 name: true,
-                createdAt: true,
-                updatedAt: true,
                 imageUrl: true,
                 role: true,
             }

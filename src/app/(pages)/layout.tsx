@@ -6,7 +6,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className={`relative ${classDisplay.variable} ${BrutalType.variable}`}>
+    <div className={`bg-white  relative ${classDisplay.variable} ${BrutalType.variable}`}>
       <div className="p-1 BrutalType">
         <NavHomePage />
       </div>

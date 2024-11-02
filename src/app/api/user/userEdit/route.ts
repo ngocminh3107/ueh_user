@@ -10,7 +10,7 @@ export async function PUT(request: NextRequest) {
 
         const updatedUser = await db.user.update({
             where: {
-                userId: id
+                id: id
             },
             data: {
                 name: name,
