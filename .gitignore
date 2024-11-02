@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /node_modules
 /.pnp
 .pnp.js
@@ -31,3 +32,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+=======
+node_modules
+>>>>>>> 698edd9e354e0c55ce952d3ed75ee51b022e685d

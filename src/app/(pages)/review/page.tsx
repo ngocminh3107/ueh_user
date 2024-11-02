@@ -1,6 +1,6 @@
 import ReviewCard from "@/components/card-review";
 import Demo from "@/assets/demo.png";
-import Image, { StaticImageData } from 'next/image'
+import { StaticImageData } from 'next/image'
 
 interface Review {
   id: number;
