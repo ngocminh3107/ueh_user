@@ -16,7 +16,7 @@ interface CardReviewProps {
 
 const EventCard: React.FC<CardReviewProps> = ({ title, location, description, image, maxCapacity,  registeredCount}) => {
     const truncateText = (text: string, maxLength: number): React.ReactNode => {
-        if (text.length > maxLength) {
+        if (text.length < maxLength) {
             return (
                 <>
                     {text.slice(0, maxLength)}...

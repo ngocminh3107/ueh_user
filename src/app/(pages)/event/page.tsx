@@ -1,5 +1,4 @@
 "use client"; 
-
 import Demo from "@/assets/demo.png";
 import { StaticImageData } from 'next/image';
 import EventCard from "@/components/card-event";
@@ -127,7 +126,8 @@ const EventPage: React.FC = () => {
 
     return (
         <div className="flex flex-col items-center justify-center ">
-            <div className="flex w-screen flex-col items-center justify-center bg-slate-600">
+          <div className="flex flex-col items-center justify-center bg-slate-600 w-full max-w-screen-lg p-4">
+
                 {/* <div className="m-8 w-full">
                     <p className="font-poppins mb-2 ml-14 text-2xl text-green-500">Review Cơ sở</p>
                     <h1 className="font-poppins ml-14 text-2xl">
