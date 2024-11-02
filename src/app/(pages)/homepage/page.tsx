@@ -1,11 +1,10 @@
 import HomePage1 from '@/assets/homepage1.png'
 import HomePage2 from '@/assets/homepage2.png'
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import EventsHomePage from "@/components/card-event-home";
 import ReviewHomePage from '@/components/card-review-home';
 
 const HomePage = () => {
-
 
     return (
         <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between bg-green-900">
