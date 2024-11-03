@@ -58,13 +58,10 @@ const ReviewHomePage: React.FC = () => {
 
   return (
     <div
-      className="flex w-screen flex-col items-center justify-center"
-      style={{
-        backgroundColor: '#F26F334D',
-      }}
+      className="flex w-screen flex-col items-center justify-center bg-[#F26F334D]"
     >
       <div className="m-8 w-full">
-        <p className="font-poppins mb-2 ml-14 text-2xl text-green-500">Review Cơ sở</p>
+        <p className="font-poppins mb-2 ml-14 text-2xl text-[#005E69]">Review Cơ sở</p>
         <div className="mx-14 flex items-center justify-between">
           <h1 className="font-poppins flex-1 text-left text-2xl">
             Khám phá từng cơ sở của UEH qua các bài viết sống động.

@@ -16,7 +16,7 @@ interface Event {
     maxCapacity: number;
 }
 
-const EventPage: React.FC = () => {
+const EventRegistered: React.FC = () => {
     const events: Event[] = [
         {
             id: 1,
@@ -128,12 +128,6 @@ const EventPage: React.FC = () => {
     return (
         <div className="flex flex-col items-center justify-center ">
             <div className="flex w-screen flex-col items-center justify-center bg-slate-600">
-                {/* <div className="m-8 w-full">
-                    <p className="font-poppins mb-2 ml-14 text-2xl text-green-500">Review Cơ sở</p>
-                    <h1 className="font-poppins ml-14 text-2xl">
-                        Chúng tôi làm việc để đưa UEH đến gần bạn hơn – Bạn hiểu UEH hơn, UEH hiểu bạn hơn.
-                    </h1>
-                </div> */}
                 <div>
                     {currentEvents.map((event) => (
                         <EventCard
@@ -180,4 +174,4 @@ const EventPage: React.FC = () => {
     );
 };
 
-export default EventPage;
+export default EventRegistered;

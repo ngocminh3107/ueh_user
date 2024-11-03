@@ -9,7 +9,7 @@ export default function RootLayout({
   
   return (
     <div className={`bg-white  relative ${classDisplay.variable} ${BrutalType.variable}`}>
-      <div className="p-1 BrutalType">
+      <div className="BrutalType">
         <NavHomePage />
       </div>
       {children}

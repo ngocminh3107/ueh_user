@@ -7,7 +7,7 @@ import ReviewHomePage from '@/components/card-review-home';
 const HomePage = () => {
 
     return (
-        <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between bg-green-900">
+        <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between bg-slate-100">
             <div className="flex flex-col items-center justify-center ">
                 <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between ">
                     {/*p1*/}

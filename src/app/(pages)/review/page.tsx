@@ -1,6 +1,8 @@
+"use client";
 import ReviewCard from "@/components/card-review";
 import Demo from "@/assets/demo.png";
-import { StaticImageData } from 'next/image'
+import { StaticImageData } from 'next/image';
+import { useState } from "react";
 
 interface Review {
   id: number;
@@ -16,10 +18,10 @@ interface Review {
 }
 
 const ReviewPage = () => {
-  const Review: Review[] = [
+  const reviews: Review[] = [
     {
       id: 1,
-      title: 'Sự kiện 1',
+      title: 'Cơ sở 1',
       description:
         'Một trong những điều tôi ấn tượng nhất là thư viện rộng lớn, nơi tích hợp nhiều tài liệu quý giá và không gian yên tĩnh để học tập. Giảng viên ở đây không chỉ có chuyên môn cao mà còn rất nhiệt tình, sẵn sàng.',
       images: [Demo, Demo, Demo, Demo],
@@ -32,7 +34,7 @@ const ReviewPage = () => {
     },
     {
       id: 2,
-      title: 'Sự kiện 2',
+      title: 'Cơ sở 2',
       description: 'Mô tả sự kiện 2.',
       images: [Demo, Demo, Demo, Demo],
       time: '2014-08-16 19:00',
@@ -44,7 +46,7 @@ const ReviewPage = () => {
     },
     {
       id: 3,
-      title: 'Sự kiện 3',
+      title: 'Cơ sở 3',
       description: 'Mô tả sự kiện 3.',
       images: [Demo, Demo, Demo, Demo],
       time: '2014-08-16 19:00',
@@ -56,31 +58,41 @@ const ReviewPage = () => {
     },
     {
       id: 4,
-      title: 'Sự kiện 3',
-      description: 'Mô tả sự kiện 3.',
+      title: 'Cơ sở 4',
+      description: 'Mô tả sự kiện 4.',
       images: [Demo, Demo, Demo, Demo],
       time: '2014-08-16 19:00',
-      location: 'Hội trường C, UEH',
-      views: 250,
-      comments: 40,
+      location: 'Hội trường D, UEH',
+      views: 300,
+      comments: 50,
       auth: 'Jese Leos',
-      rating: 3,
+      rating: 4,
+    },
+    {
+      id: 5,
+      title: 'Cơ sở 5',
+      description: 'Mô tả sự kiện 5.',
+      images: [Demo, Demo, Demo, Demo],
+      time: '2014-08-16 19:00',
+      location: 'Hội trường E, UEH',
+      views: 350,
+      comments: 60,
+      auth: 'Jese Leos',
+      rating: 5,
     },
   ];
 
-  return (
-    <div className="flex flex-col items-center justify-center ">
-      <div className="flex w-screen flex-col items-center justify-center bg-slate-600">
-        {/* <div className="m-8 w-full">
-          <p className=" font-poppins mb-2 ml-14 text-2xl text-green-500">Review Cơ sở</p>
-          <h1 className=" font-poppins ml-14 text-2xl">
-            Chúng tôi làm việc để đưa UEH đến gần bạn hơn – Bạn hiểu UEH hơn, UEH hiểu bạn hơn.
-          </h1>
-        </div> */}
-        <div className="">
+  const eventsPerPage = 3;
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const totalPages = Math.ceil(reviews.length / eventsPerPage);
+  const startIndex = (currentPage - 1) * eventsPerPage;
+  const currentReviews = reviews.slice(startIndex, startIndex + eventsPerPage);
 
-          {/*  */}
-          {Review.map((review) => (
+  return (
+    <div className="flex flex-col items-center justify-center">
+      <div className="flex w-screen flex-col items-center justify-center bg-slate-600">
+        <div>
+          {currentReviews.map((review) => (
             <ReviewCard
               key={review.id}
               title={review.title}
@@ -91,35 +103,39 @@ const ReviewPage = () => {
               views={review.views}
               comments={review.comments}
               images={review.images} // Truyền mảng các ảnh vào
-              time={review.time} />
+              time={review.time}
+            />
           ))}
         </div>
 
-        <div className="mb-8">
-          <a
-            href="#"
-            className="inline-flex items-center justify-center rounded-xl bg-blue-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+        <div className="flex justify-center mb-4">
+          <button 
+            onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} 
+            disabled={currentPage === 1} 
+            className="px-4 py-2 border rounded-xl bg-gray-300 hover:bg-gray-400 disabled:opacity-50"
           >
-            View All
-            <svg
-              className="ms-2 h-3.5 w-3.5 rtl:rotate-180"
-              aria-hidden="true"
-              fill="none"
-              viewBox="0 0 14 10"
+            Trước
+          </button>
+          {Array.from({ length: totalPages }, (_, index) => (
+            <button 
+              key={index + 1} 
+              onClick={() => setCurrentPage(index + 1)} 
+              className={`px-4 mx-2 py-2 border rounded-2xl ${currentPage === index + 1 ? 'bg-blue-500 text-white' : 'bg-gray-200 hover:bg-gray-300'}`}
             >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M1 5h12m0 0L9 1m4 4L9 9"
-              />
-            </svg>
-          </a>
+              {index + 1}
+            </button>
+          ))}
+          <button 
+            onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} 
+            disabled={currentPage === totalPages} 
+            className="px-4 py-2 border rounded-xl bg-gray-300 hover:bg-gray-400 disabled:opacity-50"
+          >
+            Sau
+          </button>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default ReviewPage
+export default ReviewPage;
