@@ -49,15 +49,30 @@ model UserCommentPost {
 
 model Post {
   id        String   @id @default(uuid())
-  title     String
+  title     String   @db.LongText
   content   String
   imageUrl  String
   createdAt DateTime @default(now())
-  userId    String
+  userId    String  @db.Text
   userLikePost     UserLikePost[]
   userRegisterPost UserRegisterPost[]
   userCommentPost  UserCommentPost[]
 }
+
+model Event {
+  id        String   @id @default(uuid())
+  title     String
+  location  String
+  description String
+  time     DateTime
+  registerCount String
+  maxCapacity String
+  content   String
+  imageUrl  String
+  createdAt DateTime @default(now())
+  userId    String  @db.Text
+}
+
 
 enum Role {
   ADMIN

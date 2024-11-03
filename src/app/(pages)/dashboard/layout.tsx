@@ -6,20 +6,23 @@ export const plus = Plus_Jakarta_Sans({
     subsets: ["latin"],
     display: "swap",
     fallback: ["Helvetica", "Arial", "sans-serif"],
-  });
+});
 
 
 export default function RootLayout({
-  children
+    children
 }: {
-  children: React.ReactNode
+    children: React.ReactNode
 }) {
-  return (
-    <div className={`p-5 flex row 2xl:gap-[172px] w-full  ${plus.className}`  }>
-        <div className="">
-            <NavDashboard />
+    return (
+        <div className={`p-5 flex row bg-[#F0F5F9]  ${plus.className}`}>
+            <div className="">
+                <NavDashboard />
+            </div>
+            <div className="w-full px-[172px]">
+                {children}
+            </div>
+
         </div>
-      {children}
-    </div>
-  )
+    )
 }
