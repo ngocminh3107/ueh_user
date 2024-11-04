@@ -4,7 +4,7 @@ import bcrypt from "bcrypt";
 export  async function POST(request: NextRequest) {
     try {
         const reqBody = await request.json();
-        const { name, email, password } = reqBody;
+        const { name, email, password, mssv } = reqBody;
         console.log(reqBody);
 
         //check if user already exists
@@ -18,15 +18,16 @@ export  async function POST(request: NextRequest) {
                 { status: 400 });
         }
         //hash password
-
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
 
         //create user
         const newUser = await db.user.create({
             data: {
                 name,
                 email,
-                mssv: "",
-                password: "Ueh@1234567890",
+                mssv,
+                password: hashedPassword,
                 imageUrl: "https://source.unsplash.com/random",
             }
         });

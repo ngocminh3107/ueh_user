@@ -36,7 +36,7 @@ const ReviewInteracted = () => {
             id: 2,
             title: 'Cơ sở 2',
             description: 'Mô tả sự kiện 2.',
-            images: [Demo, Demo, Demo, Demo],
+            images: [Demo],
             time: '2014-08-16 19:00',
             location: 'Hội trường B, UEH',
             views: 200,
@@ -90,8 +90,8 @@ const ReviewInteracted = () => {
 
     return (
         <div className="flex flex-col items-center justify-center">
-            <div className="flex w-screen flex-col items-center justify-center bg-slate-600">
-                <div>
+            <div className="flex w-screen flex-col items-center justify-center bg-white">
+                <div className="w-full px-[260px]">
                     {currentReviews.map((review) => (
                         <ReviewCard
                             key={review.id}

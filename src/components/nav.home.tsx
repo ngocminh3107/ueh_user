@@ -27,9 +27,14 @@ const NavHomePage = () => {
     const pathname = usePathname()
     const dropdownMenuItems = [
         {
-            label: "Account",
+            label: "setting",
             link: "/account",
         },
+        {
+            label: "profile",
+            link: "/userprofile",
+        },
+       
     ]
 
     const router = useRouter();

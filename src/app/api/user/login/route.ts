@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
 
         const passwordMatch = await bcrypt.compare(password, user.password);
         if (!passwordMatch) {
-            return NextResponse.json({ error: "Password incorrect" },
+            return NextResponse.json({ error: "Password is incorrect" },
                 { status: 401 });
         }
 

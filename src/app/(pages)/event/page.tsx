@@ -134,7 +134,7 @@ const EventPage: React.FC = () => {
                         Chúng tôi làm việc để đưa UEH đến gần bạn hơn – Bạn hiểu UEH hơn, UEH hiểu bạn hơn.
                     </h1>
                 </div> */}
-                <div>
+                <div className="px-[260px] w-full">
                     {currentEvents.map((event) => (
                         <EventCard
                             key={event.id}

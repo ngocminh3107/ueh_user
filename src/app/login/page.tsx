@@ -66,7 +66,7 @@ export default function LoginPage() {
                 </div>
                 <input
                     className="p-2 border border-[#005E69] rounded-xl mb-4 focus:outline-none focus:border-gray-600 text-black"
-                    id="MSSV"
+                    id="mssv"
                     type="text"
                     value={user.mssv}
                     onChange={(e) => setUser({ ...user, mssv: e.target.value })}

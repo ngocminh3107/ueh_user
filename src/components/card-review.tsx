@@ -26,11 +26,11 @@ const ReviewCard: React.FC<CardReviewProps> = ({ id, title, location, author, ra
         direction.push(`/review/${id}`);
     }
 
-    return (
+    return (    
       
         <div
             onClick={handleClicked}
-            className="flex flex-col rounded-[10px] bg-slate-200 shadow-lg mb-8 max-sm:p-1">
+            className=" flex flex-col rounded-[10px] bg-slate-200 shadow-lg mb-8 max-sm:p-1">
             <div className="m-8">
                 <div className="flex items-center justify-between text-gray-600">
                     <h2 className="mb-2 text-2xl font-bold text-gray-800">{title}</h2>

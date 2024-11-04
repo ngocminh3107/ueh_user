@@ -2,7 +2,7 @@
 import React from 'react';
 import Image, { StaticImageData } from 'next/image';
 import Demo from "@/assets/demo.png";
-
+import { useRouter } from 'next/navigation';
 interface CardReviewProps {
     id: number;
     title: string;
@@ -32,8 +32,16 @@ const EventCard: React.FC<CardReviewProps> = ({ title, location, description, im
         return text;
     };
 
+    const dirderction = useRouter();
+    const handheClicked = () => {
+        dirderction.push(`/event/${title}`);
+    }
+
+
     return (
-        <div className="flex flex-row rounded-[10px] bg-slate-200 shadow-lg mb-8 max-sm:flex-col max-sm:p-2">
+        <div 
+            onClick={handheClicked}
+        className="flex flex-row rounded-[10px] bg-slate-200 shadow-lg mb-8 max-sm:flex-col max-sm:p-2">
         {/* image container with padding */}
         <div className="p-4 sm:w-1/3 max-sm:w-full">
             <Image

@@ -127,8 +127,8 @@ const EventRegistered: React.FC = () => {
 
     return (
         <div className="flex flex-col items-center justify-center ">
-            <div className="flex w-screen flex-col items-center justify-center bg-slate-600">
-                <div>
+            <div className="flex w-screen flex-col items-center justify-center bg-white">
+                <div className=" w-full px-[260px]">
                     {currentEvents.map((event) => (
                         <EventCard
                             key={event.id}
