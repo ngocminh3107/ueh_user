@@ -39,7 +39,7 @@ const HomePage = () => {
                     {/*p3*/}
                     <ReviewHomePage/>
                     {/*p4*/}
-                    <EventsHomePage/>
+                    <EventsHomePage />
 
                 </div>
             </div>

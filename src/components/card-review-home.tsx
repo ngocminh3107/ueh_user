@@ -1,7 +1,7 @@
 "use client";
 import Image, { StaticImageData } from 'next/image';
 import Demo from "@/assets/demo.png";
-
+import Link from 'next/link';
 interface Review {
   id: number;
   title: string;
@@ -90,12 +90,12 @@ const ReviewHomePage: React.FC = () => {
                 <p className="mb-4 break-words text-gray-600">
                   {review.description.length > 200 ? `${review.description.substring(0, 200)}...` : review.description}
                 </p>
-                <a
-                  href="#"
+                <Link
+                  href={"/review/" + review.id}
                   className="mb-4 block text-right text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"
                 >
                   Read more
-                </a>
+                </Link>
 
                 <div className="flex items-center justify-items-start">
                   <div className="flex items-center">
@@ -135,11 +135,11 @@ const ReviewHomePage: React.FC = () => {
       </div>
 
       <div className="m-8">
-        <a
+        <Link
           href="#"
-          className="inline-flex items-center justify-center rounded-lg bg-blue-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+          className=" inline-flex items-center justify-center rounded-lg bg-blue-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
         >
-          View All
+          Xem tất cả
           <svg
             className="ms-2 h-3.5 w-3.5 rtl:rotate-180"
             aria-hidden="true"
@@ -155,7 +155,7 @@ const ReviewHomePage: React.FC = () => {
               d="M1 5h12m0 0L9 1m4 4L9 9"
             />
           </svg>
-        </a>
+        </Link>
       </div>
     </div>
   );

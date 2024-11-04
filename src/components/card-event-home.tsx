@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import Demo from "@/assets/demo.png";
 import Image, { StaticImageData } from 'next/image';
-
+import Link from 'next/link';
 interface EventItem {
     id: number;
     title: string;
@@ -81,11 +81,11 @@ const EventsHomePage: React.FC = () => {
     const visibleItems = getVisibleItems();
 
     return (
-        <div className="mt-16 flex w-screen flex-col items-center justify-center">
+        <div className="mt-16 flex w-600 flex-col items-center justify-center">
             <div className="m-8 w-full">
-                <p className="font-poppins mb-2 ml-14 text-2xl text-orange-500">Lịch hoạt động</p>
+                <p className="t font-poppins mb-2 ml-14 text-2xl text-orange-500">Lịch hoạt động</p>
                 <div className="mx-14 flex items-center justify-between">
-                    <h1 className="font-poppins flex-1 text-left text-2xl">Không bỏ lỡ bất kỳ hoạt động thú vị và bổ ích nào.</h1>
+                    <h1 className="font-poppins flex-1 text-left text-2xl text-black">Không bỏ lỡ bất kỳ hoạt động thú vị và bổ ích nào.</h1>
                     <p className="font-poppins flex-1 text-left text-lg font-medium leading-9 text-orange-500">
                         Theo dõi toàn bộ các hoạt động và sự kiện tích điểm rèn luyện tại đây. Ngoài ra còn có các chương trình và
                         hội thảo hữu ích đang chờ đón bạn.
@@ -93,31 +93,31 @@ const EventsHomePage: React.FC = () => {
                 </div>
             </div>
 
-            <div className="flex items-center justify-center space-x-4">
+            <div className="flex items-center justify-center space-x-4 ">
                 {visibleItems.map(({ item, position }) => (
                     <div
                         key={item.id}
                         className={`transition-transform duration-500 ease-in-out ${
-                            position === "current" ? "scale-100 opacity-100" : "scale-75 opacity-50"
+                            position === "current" ? " scale-100 opacity-100" : "scale-75 opacity-50"
                         }`}
-                        style={{ width: position === "current" ? "100%" : "25%" }}
+                        style={{ width: position === "current" ? "100%" : "75%" }}
                     >
                         <Image
                             src={item.image}
                             alt={item.title}
-                            className="h-full w-full rounded-lg object-cover"
+                            className="h-[300px] w-[1850px] rounded-lg object-cover"
                         />
-                        <h3 className="mt-2 text-lg font-semibold text-center">{item.title}</h3>
+                        <h3 className="mt-2 text-lg font-semibold text-center text-black">{item.title}</h3>
                     </div>
                 ))}
             </div>
 
             <div className="m-8">
-                <a
-                    href="#"
+                <Link
+                    href="/event"
                     className="inline-flex items-center justify-center rounded-lg bg-blue-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
                 >
-                    View All
+                    Xem tất cả
                     <svg
                         className="ms-2 h-3.5 w-3.5 rtl:rotate-180"
                         aria-hidden="true"
@@ -133,7 +133,7 @@ const EventsHomePage: React.FC = () => {
                             d="M1 5h12m0 0L9 1m4 4L9 9"
                         />
                     </svg>
-                </a>
+                </Link>
             </div>
         </div>
     );

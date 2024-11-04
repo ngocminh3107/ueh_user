@@ -9,7 +9,7 @@ import { db } from "@/lib/db";
 export default function ReviewDetailPage({ params }: { params: { id: string } } ) {
  
     return (
-        <div>
+        <div className="h-screen ">
             <h1 className="text-black">Review Detail ID: {params.id}</h1>
         </div>
     );

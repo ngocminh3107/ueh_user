@@ -119,7 +119,7 @@ const ReviewPage = () => {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="flex w-screen flex-col items-center justify-center bg-slate-600">
+      <div className="flex w-screen flex-col items-center justify-center bg-white">
         <div>
           {currentReviews.map((review) => (
             <ReviewCard
