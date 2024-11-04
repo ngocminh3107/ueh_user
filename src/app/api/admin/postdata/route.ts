@@ -8,8 +8,15 @@ export async function GET(request: NextRequest){
             select:{
                 id: true,
                 title: true,
-                content: true,
-                imageUrl: true,
+                description: true,
+                images: true,
+                time: true,
+                location: true,
+                views: true,
+                comments: true,
+                rating: true,
+                author: true,
+                createdAt: true,
             }
         })
         console.log()

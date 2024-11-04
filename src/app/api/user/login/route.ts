@@ -6,11 +6,11 @@ import jwt from "jsonwebtoken";
 export async function POST(request: NextRequest) {
     try {
         const reqBody = await request.json();
-        const { email, password } = reqBody;
+        const { mssv, password } = reqBody;
 
         const user = await db.user.findFirst({
             where: {
-                email
+                mssv
             }
         });
         if (!user) {

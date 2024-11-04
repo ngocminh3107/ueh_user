@@ -4,17 +4,19 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest){
     try {
-        const user = await  db.user.findMany({
+        const id = await getDataFromToken(request);
+        const user = await  db.user.findFirst({
+            where:{
+                id: id
+            },
             select:{
                 id: true,
                 email: true,
                 name: true,
                 imageUrl: true,
-                mssv: true,
                 role: true,
             }
         })
-        console.log()
         return NextResponse.json({
             message: "User data",
             success: true,

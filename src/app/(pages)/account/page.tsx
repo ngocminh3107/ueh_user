@@ -152,7 +152,7 @@ export default function UserProfile() {
                                     </div>
                                 </HoverCardTrigger>
                                 <HoverCardContent className="text-[#141414]">
-                                    <b>Please note:</b>  If you changed your Epic Games display name, you can{"'"}t change it again for 2 weeks after you confirm this change.
+                                    <b>Please note:</b>  If you changed your  display name, you can{"'"}t change it again for 2 weeks after you confirm this change.
                                 </HoverCardContent>
                             </HoverCard>
                         </div>
@@ -297,89 +297,14 @@ export default function UserProfile() {
                 <button
                     className="p-2  rounded-[6px] mt-10 bg-[#0076e480] focus:outline-none hover:bg-[#0076e480] text-white font-semibold px-8 py-4 uppercase text-xs min-h-[60px]">Save Changes</button>
             </div>
-            <div>
-                <p className="text-[#141414] mt-[52px] font-bold text-lg mb-5">Company</p>
-                <p className="text-sm text-[#141414B8]">
-                    Manage your company information used for business receipts for your purchase(s).
-                    <Link href="/privacy" passHref className="text-[#0074E4]">
-                        {" "}Learn more
-                    </Link>
-                </p>
-                <p className="font-bold text-sm text-[#141414]">If you are registered for VAT, you may not be charged VAT on your purchase. To get started, enter your COMPANY VAT NUMBER.</p>
-                <div className="text-[#141414B8] grid gap-6 grid-cols-2 mt-2.5">
-                    <input className="transition-input w-full text-sm bg-transparent border border-gray-300 focus:border-black rounded-[4px] mt-4 px-[30px] py-5  focus:outline-none"
-                        id="firstName"
-                        type="text"
-                        placeholder="Company Name"
-                    />
-                    <input className="transition-input w-full text-sm bg-transparent border border-gray-300 focus:border-black rounded-[4px] mt-4 px-[30px] py-5  focus:outline-none"
-                        id="lastName"
-                        type="text"
-                        placeholder="Company VAT Number"
-                    />
-                </div>
-            </div>
-
-            <div >
-                <p className="text-[#141414] mt-[52px] font-bold text-lg mb-2.5">Company Address</p>
-                <div className="grid gap-2">
-                    <div className="text-[#141414B8] grid gap-6 grid-cols-2">
-                        <input className="transition-input w-full text-sm bg-transparent border border-gray-300 focus:border-black rounded-[4px] mt-4 px-[30px] py-5  focus:outline-none"
-                            id="firstName"
-                            type="text"
-                            placeholder="Address Line 1"
-                        />
-                        <input className="transition-input w-full text-sm bg-transparent border border-gray-300 focus:border-black rounded-[4px] mt-4 px-[30px] py-5  focus:outline-none"
-                            id="lastName"
-                            type="text"
-                            placeholder="Address Line 2"
-                        />
-                    </div>
-                    <div className="grid gap-6 grid-cols-2">
-                        <input className="transition-input w-full text-sm bg-transparent border border-gray-300 focus:border-black rounded-[4px] mt-4 px-[30px] py-5  focus:outline-none"
-                            id="address"
-                            type="text"
-                            placeholder="City"
-                        />
-                        <div className="grid gap-6 grid-cols-2">
-                            <input className="transition-input w-full text-sm bg-transparent border border-gray-300 focus:border-black rounded-[4px] mt-4 px-[30px] py-5  focus:outline-none"
-                                id="address"
-                                type="text"
-                                placeholder="Region"
-                            />
-                            <input className="transition-input w-full text-sm bg-transparent border border-gray-300 focus:border-black rounded-[4px] mt-4 px-[30px] py-5  focus:outline-none"
-                                id="address"
-                                type="text"
-                                placeholder="Postal Code"
-                            />
-                        </div>
-
-                    </div>
-                </div>
-                <button
-                    className="p-2  rounded-[6px] mt-10 bg-[#0076e480] focus:outline-none hover:bg-[#0076e480] text-white font-semibold px-8 py-4 uppercase text-xs min-h-[60px]">Save Changes</button>
-            </div>
-
-            <div>
-                <p className="text-[#141414] mt-[100px] font-bold text-lg mb-5">Download Account Information
-                </p>
-                <p className="text-sm text-[#141414B8]">
-                    Create and download a copy of the information you’ve shared with us. You will need to enable
-
-                    <Link href="/privacy" passHref className="text-[#0074E4]">
-                        {" "}Two-Factor Authentication{" "}
-                    </Link>
-                    and verify your email address to continue.
-                </p>
-            </div>
+   
+        
             <div>
                 <p className="text-[#141414] mt-[100px] font-bold text-lg mb-5">Delete Account
                 </p>
                 <p className="text-sm text-[#141414B8]">
-                    Click REQUEST ACCOUNT DELETE to start the process of permanently deleting your Epic
-                    Games account including all personal information, purchases, game progress, in-game
-                    content, Unreal projects and Epic Games Wallet account. Once your Epic Games account
-                    is deleted, your wallet balance will be permanently deleted as well.
+                    Click REQUEST ACCOUNT DELETE to start the process of permanently deleting youraccount including all personal information, purchases
+                    content.
                 </p>
                 <p className="font-bold text-sm text-[#141414] mt-5">If you request to delete your account,
                     your account will be deleted in 14 days. During this time, you can login to reactivate your

@@ -1,5 +1,11 @@
-const ReviewDetailPage = () => {
-    return <div>ReviewDetailPage</div>;
-}
+export default function ReviewDetailPage({
+    params, }: {params: { id: string }}) {
 
-export default ReviewDetailPage;
+    
+
+    return (
+        <div>
+            <h1 className="text-black">review detail id {params.id}</h1>
+        </div>
+    )
+}

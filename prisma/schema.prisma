@@ -9,6 +9,7 @@ datasource db {
 
 model User {
   id               String   @id @default(uuid())
+  mssv             String
   name             String
   password         String
   imageUrl         String   @db.Text
@@ -50,8 +51,14 @@ model UserCommentPost {
 model Post {
   id        String   @id @default(uuid())
   title     String   @db.LongText
-  content   String
-  imageUrl  String
+  description   String @db.LongText
+  images  String
+  time    DateTime
+  location String
+  views   String
+  comments String
+  author   String
+  rating   String 
   createdAt DateTime @default(now())
   userId    String  @db.Text
   userLikePost     UserLikePost[]

@@ -2,22 +2,35 @@
 import React from 'react';
 import Image, { StaticImageData } from 'next/image';
 import Demo from "@/assets/demo.png";
+import { Link } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 interface CardReviewProps {
+    id: string;
     title: string;
     location: string;
-    auth: string;
+    author: string;
     rating: number;
     description: string;
     views: number;
     comments: number;
     time: string;
-    images: (string | StaticImageData)[];
+    images: string;
 }
 
-const ReviewCard: React.FC<CardReviewProps> = ({ title, location, auth, rating, description, views, time, comments, images }) => {
+
+
+const ReviewCard: React.FC<CardReviewProps> = ({ id, title, location, author, rating, description, views, time, comments, images }) => {
+    const direction = useRouter();
+    const handleClicked = () => {
+        direction.push(`/review/${id}`);
+    }
+
     return (
-        <div className="flex flex-col rounded-[10px] bg-slate-200 shadow-lg mb-8 max-sm:p-1">
+      
+        <div
+            onClick={handleClicked}
+            className="flex flex-col rounded-[10px] bg-slate-200 shadow-lg mb-8 max-sm:p-1">
             <div className="m-8">
                 <div className="flex items-center justify-between text-gray-600">
                     <h2 className="mb-2 text-2xl font-bold text-gray-800">{title}</h2>
@@ -31,7 +44,7 @@ const ReviewCard: React.FC<CardReviewProps> = ({ title, location, auth, rating, 
                         alt=""
                     />
                     <div className="font-medium dark:text-white">
-                        <p className="text-black text-xl font-bold">{auth}
+                        <p className="text-black text-xl font-bold">{author}
                             <time dateTime={time} className="block text-sm text-gray-500 dark:text-gray-400">{time}</time></p>
                     </div>
                 </div>
@@ -57,18 +70,17 @@ const ReviewCard: React.FC<CardReviewProps> = ({ title, location, auth, rating, 
             </div>
             {/* image */}
             <div className="flex flex-row mx-8 gap-8 flex-wrap">
-                {images.map((imgSrc, index) => (
-                    <Image
-                        key={index}
-                        src={imgSrc}
-                        alt={title}
-                        className="transform transition-transform duration-300 hover:scale-105 rounded-[10px]"
-                    />
-                ))}
+
+                <Image
+                    src={Demo}
+                    className="w-1/4 h-1/4 rounded-lg"
+                    alt=""
+                />
             </div>
             <hr className="m-4 mx-8 bg-slate-600 h-[2px]" />
             <div className="flex items-center justify-between text-gray-600 mx-8 mb-4">
                 <span>{views} lượt xem</span>
+
                 <span>{comments} bình luận</span>
             </div>
         </div>

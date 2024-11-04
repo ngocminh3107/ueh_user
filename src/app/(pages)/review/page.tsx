@@ -2,85 +2,114 @@
 import ReviewCard from "@/components/card-review";
 import Demo from "@/assets/demo.png";
 import { StaticImageData } from 'next/image';
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
 interface Review {
-  id: number;
+  id: string;
   title: string;
   description: string;
-  images: (string | StaticImageData)[];
+  images: string;
   time: string;
   location: string;
   views: number;
   comments: number;
-  auth: string;
+  author: string;
   rating: number;
 }
 
 const ReviewPage = () => {
-  const reviews: Review[] = [
+  // const reviews: Review[] = [
+  //   {
+  //     id: 1,
+  //     title: 'Cơ sở 1',
+  //     description:
+  //       'Một trong những điều tôi ấn tượng nhất là thư viện rộng lớn, nơi tích hợp nhiều tài liệu quý giá và không gian yên tĩnh để học tập. Giảng viên ở đây không chỉ có chuyên môn cao mà còn rất nhiệt tình, sẵn sàng.',
+  //     images: [Demo, Demo, Demo, Demo],
+  //     time: '2014-08-16 19:00',
+  //     location: 'Hội trường A, UEH',
+  //     views: 150,
+  //     comments: 25,
+  //     auth: 'Jese Leos',
+  //     rating: 5,
+  //   },
+  //   {
+  //     id: 2,
+  //     title: 'Cơ sở 2',
+  //     description: 'Mô tả sự kiện 2.',
+  //     images: [Demo, Demo, Demo, Demo],
+  //     time: '2014-08-16 19:00',
+  //     location: 'Hội trường B, UEH',
+  //     views: 200,
+  //     comments: 30,
+  //     auth: 'Jese Leos',
+  //     rating: 4,
+  //   },
+  //   {
+  //     id: 3,
+  //     title: 'Cơ sở 3',
+  //     description: 'Mô tả sự kiện 3.',
+  //     images: [Demo, Demo, Demo, Demo],
+  //     time: '2014-08-16 19:00',
+  //     location: 'Hội trường C, UEH',
+  //     views: 250,
+  //     comments: 40,
+  //     auth: 'Jese Leos',
+  //     rating: 3,
+  //   },
+  //   {
+  //     id: 4,
+  //     title: 'Cơ sở 4',
+  //     description: 'Mô tả sự kiện 4.',
+  //     images: [Demo, Demo, Demo, Demo],
+  //     time: '2014-08-16 19:00',
+  //     location: 'Hội trường D, UEH',
+  //     views: 300,
+  //     comments: 50,
+  //     auth: 'Jese Leos',
+  //     rating: 4,
+  //   },
+  //   {
+  //     id: 5,
+  //     title: 'Cơ sở 5',
+  //     description: 'Mô tả sự kiện 5.',
+  //     images: [Demo, Demo, Demo, Demo],
+  //     time: '2014-08-16 19:00',
+  //     location: 'Hội trường E, UEH',
+  //     views: 350,
+  //     comments: 60,
+  //     auth: 'Jese Leos',
+  //     rating: 5,
+  //   },
+  // ];
+  const [reviews, setReviews] = useState<Review[]>([
     {
-      id: 1,
-      title: 'Cơ sở 1',
+      id: '',
+      title: '',
       description:
-        'Một trong những điều tôi ấn tượng nhất là thư viện rộng lớn, nơi tích hợp nhiều tài liệu quý giá và không gian yên tĩnh để học tập. Giảng viên ở đây không chỉ có chuyên môn cao mà còn rất nhiệt tình, sẵn sàng.',
-      images: [Demo, Demo, Demo, Demo],
-      time: '2014-08-16 19:00',
-      location: 'Hội trường A, UEH',
-      views: 150,
-      comments: 25,
-      auth: 'Jese Leos',
-      rating: 5,
-    },
-    {
-      id: 2,
-      title: 'Cơ sở 2',
-      description: 'Mô tả sự kiện 2.',
-      images: [Demo, Demo, Demo, Demo],
-      time: '2014-08-16 19:00',
-      location: 'Hội trường B, UEH',
-      views: 200,
-      comments: 30,
-      auth: 'Jese Leos',
-      rating: 4,
-    },
-    {
-      id: 3,
-      title: 'Cơ sở 3',
-      description: 'Mô tả sự kiện 3.',
-      images: [Demo, Demo, Demo, Demo],
-      time: '2014-08-16 19:00',
-      location: 'Hội trường C, UEH',
-      views: 250,
-      comments: 40,
-      auth: 'Jese Leos',
-      rating: 3,
-    },
-    {
-      id: 4,
-      title: 'Cơ sở 4',
-      description: 'Mô tả sự kiện 4.',
-      images: [Demo, Demo, Demo, Demo],
-      time: '2014-08-16 19:00',
-      location: 'Hội trường D, UEH',
-      views: 300,
-      comments: 50,
-      auth: 'Jese Leos',
-      rating: 4,
-    },
-    {
-      id: 5,
-      title: 'Cơ sở 5',
-      description: 'Mô tả sự kiện 5.',
-      images: [Demo, Demo, Demo, Demo],
-      time: '2014-08-16 19:00',
-      location: 'Hội trường E, UEH',
-      views: 350,
-      comments: 60,
-      auth: 'Jese Leos',
-      rating: 5,
-    },
-  ];
+        '',
+      images:"",
+      time: '',
+      location: '',
+      views: 0,
+      comments: 0,
+      author:"",
+      rating: 0,
+    }
+  ]);
+  useEffect(() => {
+    axios.get('/api/admin/postdata')
+        .then((res) => {
+            setReviews(res.data.data);
+        })
+        .catch((err) => {
+            toast.error(err.response.data.error);
+        });
+}, []);
+
+
+
+
 
   const eventsPerPage = 3;
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -95,9 +124,10 @@ const ReviewPage = () => {
           {currentReviews.map((review) => (
             <ReviewCard
               key={review.id}
+              id={review.id}
               title={review.title}
               location={review.location}
-              auth={review.auth}
+              author={review.author}
               rating={review.rating}
               description={review.description}
               views={review.views}

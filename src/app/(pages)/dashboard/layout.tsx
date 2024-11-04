@@ -15,7 +15,7 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <div className={`p-5 flex row bg-[#F0F5F9]  ${plus.className}`}>
+        <div className={`p-5 flex row bg-[#F0F5F9] relative ${plus.className}`}>
             <div className="">
                 <NavDashboard />
             </div>
