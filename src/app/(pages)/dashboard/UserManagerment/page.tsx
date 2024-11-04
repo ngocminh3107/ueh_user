@@ -62,8 +62,8 @@ const UserManagement = () => {
     const onSignup = async () => {
         try {
             const response = await axios.post("/api/user/signup",newuser);
-            console.log("Signup success", response.data);
-           
+            console.log("Thêm sinh viên thành công", response.data);
+            toast.success("Thêm sinh viên thành công!");
         } catch (error:any) {
             console.log("Signup failed", error.message);
             toast.error(error.message);
@@ -132,57 +132,52 @@ const UserManagement = () => {
                             <AlertDialogTrigger asChild>
                                 <button className='bg-green-400 px-4 py-2 rounded-[4px]'>add new user</button>
                             </AlertDialogTrigger>
-                            <AlertDialogContent>
+                            <AlertDialogContent className='bg-white pb-5 '>
+                            <div className="flex flex-col items-center justify-center p-8 bg-white rounded-lg max-w-md mx-auto">
+    <label htmlFor="username" className="text-gray-700 font-semibold mb-2">Username</label>
+    <input
+        className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-blue-500 text-gray-700"
+        id="username"
+        type="text"
+        value={newuser.name}
+        onChange={(e) => setnewUser({ ...newuser, name: e.target.value })}
+        placeholder="Username"
+    />
 
-                            <div className="flex flex-col items-center justify-center min-h-screen py-2">
-                                    <hr />
-                                    <label htmlFor="username">username</label>
-                                    <input
-                                        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
-                                        id="username"
-                                        type="text"
-                                        value={newuser.name}
-                                        onChange={(e) => setnewUser({ ...newuser, name: e.target.value })}
-                                        placeholder="username"
-                                    />
-                                    <label htmlFor="mssv">mssv</label>
-                                    <input
-                                        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
-                                        id="mssv"
-                                        type="text"
-                                        value={newuser.mssv}
-                                        onChange={(e) => setnewUser({ ...newuser, mssv: e.target.value })}
-                                        placeholder="mssv"
-                                    />
-                                    
+    <label htmlFor="mssv" className="text-gray-700 font-semibold mb-2">MSSV</label>
+    <input
+        className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-blue-500 text-gray-700"
+        id="mssv"
+        type="text"
+        value={newuser.mssv}
+        onChange={(e) => setnewUser({ ...newuser, mssv: e.target.value })}
+        placeholder="MSSV"
+    />
 
-                                    <label htmlFor="email">email</label>
-                                    <input
-                                        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
-                                        id="email"
-                                        type="text"
-                                        value={newuser.email}
-                                        onChange={(e) => setnewUser({ ...newuser, email: e.target.value })}
-                                        placeholder="email"
-                                    />
-                                    <label htmlFor="password">password</label>
-                                    <input
-                                        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
-                                        id="password"
-                                        type="password"
-                                        value="Ueh@1234567890"
-                                        onChange={(e) => setnewUser({ ...newuser, password: e.target.value })}
-                                        placeholder="password"
-                                    />
+    <label htmlFor="email" className="text-gray-700 font-semibold mb-2">Email</label>
+    <input
+        className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-blue-500 text-gray-700"
+        id="email"
+        type="text"
+        value={newuser.email}
+        onChange={(e) => setnewUser({ ...newuser, email: e.target.value })}
+        placeholder="Email"
+    />
 
-                                    <button
-                                        onClick={onSignup}
-                                        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"></button>
-                                    <Link href="/login">Visit login page</Link>
-                                </div>
+    <label htmlFor="password" className="text-gray-700 font-semibold mb-2">Password</label>
+    <input
+        className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-blue-500 text-gray-700"
+        id="password"
+        type="password"
+        value="Ueh@1234567890"
+        onChange={(e) => setnewUser({ ...newuser, password: e.target.value })}
+        placeholder="Password"
+    />
+</div>
+
                                 <AlertDialogFooter>
                                     <AlertDialogCancel className="  bg-gray-500 text-white px-4 py-2 rounded">Cancel</AlertDialogCancel>
-                                    <AlertDialogAction type="submit" className=" bg-blue-500 text-white px-4 py-2 rounded">Update</AlertDialogAction>
+                                    <AlertDialogAction  onClick={onSignup} type="submit" className=" bg-blue-500 text-white px-4 py-2 rounded">Update</AlertDialogAction>
                                 </AlertDialogFooter>
 
                         </AlertDialogContent>

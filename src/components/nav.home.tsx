@@ -10,7 +10,7 @@ import ShopSvg from "@/assets/shop.svg";
 import { FaRegUser } from "react-icons/fa";
 import LogoDropdow from "@/components/logoDropdow";
 import { TfiWorld } from "react-icons/tfi";
-import Logo from "@/assets/Logo_UEH.png"
+import Logo from "@/assets/MYUEH_logo.png"
 import {
     IoIosMenu,
     IoMdClose
@@ -18,9 +18,7 @@ import {
 import {
     DropdownMenu,
     DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
+    
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import Drawers from "./drawer"
@@ -76,7 +74,7 @@ const NavHomePage = () => {
         getData();
     }, []);
     return (
-        <nav className="border-gray-200 bg-[#005E69] dark:bg-gray-900">
+        <nav className="border-gray-200 bg-white dark:bg-gray-900">
             <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
                 <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
                     <Image src={Logo} className="h-8 w-auto" alt="EUH LOGO" />
@@ -159,24 +157,24 @@ const NavHomePage = () => {
                             placeholder="Search..."
                         />
                     </div>
-                    <ul className="mt-4 flex flex-col rounded-lg border border-gray-100 bg-[#005E69] p-4 font-medium rtl:space-x-reverse dark:border-gray-700 dark:bg-gray-800 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-[#005E69] md:p-0 md:dark:bg-gray-900">
+                    <ul className="mt-4 flex flex-col rounded-lg border border-gray-100 bg-white p-4 font-medium rtl:space-x-reverse dark:border-gray-700 dark:bg-gray-800 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0 md:dark:bg-gray-900">
                         <li>
                             <a
                                 href="#"
-                                className="block rounded px-3 py-2 text-white hover:bg-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:p-0 md:hover:bg-transparent md:hover:text-[#F26F33] md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
+                                className="block rounded px-3 py-2 text-[#005E69] hover:bg-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:p-0 md:hover:bg-transparent md:hover:text-[#F26F33] md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
                                 aria-current="page"
                             >
                                 Trang chủ
                             </a>
                         </li>
                         <li>
-                            <a className="block rounded px-3 py-2 text-white hover:bg-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:p-0 md:hover:bg-transparent md:hover:text-[#F26F33] md:dark:hover:bg-transparent md:dark:hover:text-blue-500">
+                            <a className="block rounded px-3 py-2 text-[#005E69] hover:bg-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:p-0 md:hover:bg-transparent md:hover:text-[#F26F33] md:dark:hover:bg-transparent md:dark:hover:text-blue-500">
                                 Cơ sở
                             </a>
                         </li>
                         <li>
                             <a
-                                className="block rounded px-3 py-2 text-white hover:bg-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:p-0 md:hover:bg-transparent md:hover:text-[#F26F33] md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
+                                className="block rounded px-3 py-2 text-[#005E69] hover:bg-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:p-0 md:hover:bg-transparent md:hover:text-[#F26F33] md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
                             >
                                 Hoạt động
                             </a>
@@ -184,7 +182,7 @@ const NavHomePage = () => {
                         <li>
                             <a
                                 href="#"
-                                className="block rounded px-3 py-2 text-white hover:bg-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:p-0 md:hover:bg-transparent md:hover:text-[#F26F33] md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
+                                className="block rounded px-3 py-2 text-[#005E69] hover:bg-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:p-0 md:hover:bg-transparent md:hover:text-[#F26F33] md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
                             >
                                 Giải trí
                             </a>
