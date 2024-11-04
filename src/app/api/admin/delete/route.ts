@@ -6,9 +6,7 @@ export async function DELETE(request: NextRequest) {
     try {
         const reqBody = await request.json();
         const {id} = reqBody;
-        console.log(
-            id
-        )
+     
         const deletedUser = await db.user.deleteMany({
             where: {
                 id: id,

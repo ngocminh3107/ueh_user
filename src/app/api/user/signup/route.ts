@@ -25,7 +25,7 @@ export  async function POST(request: NextRequest) {
             data: {
                 name,
                 email,
-                mssv: "123456",
+                mssv: "",
                 password: "Ueh@1234567890",
                 imageUrl: "https://source.unsplash.com/random",
             }
