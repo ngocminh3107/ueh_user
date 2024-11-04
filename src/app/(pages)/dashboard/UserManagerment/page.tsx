@@ -50,11 +50,20 @@ interface User {
 
 const UserManagement = () => {
     const router = useRouter();
+
+    const [newuser, setnewUser] = React.useState({
+        email: "",
+        password: "",
+        name: "",
+        mssv: "",
+        imageUrl:"https://res.cloudinary.com/dx3a3xlna/im",
+    })
+
     const onSignup = async () => {
         try {
-            const response = await axios.post("/api/user/signup",user);
+            const response = await axios.post("/api/user/signup",newuser);
             console.log("Signup success", response.data);
-            router.push("/login");
+           
         } catch (error:any) {
             console.log("Signup failed", error.message);
             toast.error(error.message);
@@ -71,6 +80,8 @@ const UserManagement = () => {
             password: ""
         }
     ])
+
+
     useEffect(() => {
         axios.get('/api/admin/userdata')
             .then((res) => {
@@ -94,27 +105,6 @@ const UserManagement = () => {
             })
     }
 
-
-
-
-
-
-    // async function createRandomUsers() {
-    //     try {
-    //       const response = await fetch('/api/admin/random', {
-    //         method: 'POST',
-    //       });
-
-    //       if (response.ok) {
-    //         console.log('Random users created successfully');
-    //         // Refresh the user list or perform other actions as needed
-    //       } else {
-    //         console.error('Error creating random users');
-    //       }
-    //     } catch (error) {
-    //       console.error('Error:', error);
-    //     }
-    //   }
     return (
         <div>
             <div className='bg-white rounded-[8px]  flex row  justify-between items-center min-w-full'>
@@ -144,7 +134,52 @@ const UserManagement = () => {
                             </AlertDialogTrigger>
                             <AlertDialogContent>
 
-                             
+                            <div className="flex flex-col items-center justify-center min-h-screen py-2">
+                                    <hr />
+                                    <label htmlFor="username">username</label>
+                                    <input
+                                        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
+                                        id="username"
+                                        type="text"
+                                        value={newuser.name}
+                                        onChange={(e) => setnewUser({ ...newuser, name: e.target.value })}
+                                        placeholder="username"
+                                    />
+                                    <label htmlFor="mssv">mssv</label>
+                                    <input
+                                        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
+                                        id="mssv"
+                                        type="text"
+                                        value={newuser.mssv}
+                                        onChange={(e) => setnewUser({ ...newuser, mssv: e.target.value })}
+                                        placeholder="mssv"
+                                    />
+                                    
+
+                                    <label htmlFor="email">email</label>
+                                    <input
+                                        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
+                                        id="email"
+                                        type="text"
+                                        value={newuser.email}
+                                        onChange={(e) => setnewUser({ ...newuser, email: e.target.value })}
+                                        placeholder="email"
+                                    />
+                                    <label htmlFor="password">password</label>
+                                    <input
+                                        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
+                                        id="password"
+                                        type="password"
+                                        value="Ueh@1234567890"
+                                        onChange={(e) => setnewUser({ ...newuser, password: e.target.value })}
+                                        placeholder="password"
+                                    />
+
+                                    <button
+                                        onClick={onSignup}
+                                        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"></button>
+                                    <Link href="/login">Visit login page</Link>
+                                </div>
                                 <AlertDialogFooter>
                                     <AlertDialogCancel className="  bg-gray-500 text-white px-4 py-2 rounded">Cancel</AlertDialogCancel>
                                     <AlertDialogAction type="submit" className=" bg-blue-500 text-white px-4 py-2 rounded">Update</AlertDialogAction>
@@ -179,6 +214,8 @@ const UserManagement = () => {
                                     <img src={item.imageUrl} alt="" className='w-10 h-10' />
                                 </TableCell>
                                 <TableCell>{item.name}</TableCell>
+                                <TableCell className="">{item.mssv}</TableCell>
+                                <TableCell className="">{item.password}</TableCell>
                                 <TableCell>{item.email}</TableCell>
                                 <TableCell className="">
                                     <button className='bg-green-400 px-4 py-2 rounded-[4px]'>Edit</button>
@@ -186,6 +223,7 @@ const UserManagement = () => {
                                         onClick={() => deleteUser(item.id)}
                                     >Delete</button>
                                     <button></button>
+
                                 </TableCell>
                                 <TableCell className="text-right">{item.role}</TableCell>
                             </TableRow>

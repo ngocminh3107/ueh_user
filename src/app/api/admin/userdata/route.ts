@@ -11,10 +11,11 @@ export async function GET(request: NextRequest){
                 name: true,
                 imageUrl: true,
                 mssv: true,
+                password: true,
                 role: true,
             }
         })
-        console.log()
+
         return NextResponse.json({
             message: "User data",
             success: true,

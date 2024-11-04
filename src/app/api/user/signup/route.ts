@@ -18,14 +18,15 @@ export  async function POST(request: NextRequest) {
                 { status: 400 });
         }
         //hash password
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(password, salt);
+
+
         //create user
         const newUser = await db.user.create({
             data: {
                 name,
                 email,
-                password: hashedPassword,
+                mssv: "123456",
+                password: "Ueh@1234567890",
                 imageUrl: "https://source.unsplash.com/random",
             }
         });

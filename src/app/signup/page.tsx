@@ -11,6 +11,7 @@ export  default function SignupPage() {
         email: "",
         password: "",
         name: "",
+        mssv: "",
         imageUrl:"https://res.cloudinary.com/dx3a3xlna/im",
     })
     const [buttonDisabled, setButtonDisabled] = React.useState(false);
