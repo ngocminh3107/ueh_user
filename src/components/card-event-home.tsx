@@ -82,7 +82,7 @@ const EventsHomePage: React.FC = () => {
 
     return (
         <div className="mt-16 flex w-600 flex-col items-center justify-center">
-            <div className="m-8 w-full">
+            <div className="mx-8 mb-8 w-full">
                 <p className="t font-poppins mb-2 ml-14 text-2xl text-orange-500">Lịch hoạt động</p>
                 <div className="mx-14 flex items-center justify-between">
                     <h1 className="font-poppins flex-1 text-left text-2xl text-black">Không bỏ lỡ bất kỳ hoạt động thú vị và bổ ích nào.</h1>
@@ -105,7 +105,7 @@ const EventsHomePage: React.FC = () => {
                         <Image
                             src={item.image}
                             alt={item.title}
-                            className="h-[300px] w-[1850px] rounded-lg object-cover"
+                            className="h-[300px] w-[1850px] rounded-[16px] object-cover"
                         />
                         <h3 className="mt-2 text-lg font-semibold text-center text-black">{item.title}</h3>
                     </div>
@@ -115,7 +115,7 @@ const EventsHomePage: React.FC = () => {
             <div className="m-8">
                 <Link
                     href="/event"
-                    className="inline-flex items-center justify-center rounded-lg bg-blue-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+                    className="inline-flex items-center justify-center rounded-[16px] bg-blue-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
                 >
                     Xem tất cả
                     <svg

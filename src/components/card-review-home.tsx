@@ -74,7 +74,7 @@ const ReviewHomePage: React.FC = () => {
       </div>
       <div className="flex flex-col gap-8 md:flex-row">
         {reviews.map((review) => (
-          <div key={review.id} className="flex flex-col rounded-lg bg-white p-6 shadow-lg">
+          <div key={review.id} className="flex flex-col rounded-[16px] bg-white p-6 shadow-lg">
             <div className="relative mb-4 overflow-hidden rounded-xl">
               <span className="absolute left-2 top-2 z-10 rounded bg-blue-500 p-1 text-sm font-semibold text-white">
                 Được yêu thích
@@ -137,7 +137,7 @@ const ReviewHomePage: React.FC = () => {
       <div className="m-8">
         <Link
           href="#"
-          className=" inline-flex items-center justify-center rounded-lg bg-blue-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+          className=" inline-flex items-center justify-center rounded-[16px] bg-blue-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
         >
           Xem tất cả
           <svg

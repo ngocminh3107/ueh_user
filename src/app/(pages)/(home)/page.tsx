@@ -24,7 +24,7 @@ const HomePage = () => {
                     <div className="mb-16 mt-8 flex w-screen flex-col items-center justify-center">
                         <div className="m-8 w-full">
                             <p className=" font-poppins mb-2 ml-14 text-2xl text-orange-600">Về chúng tôi</p>
-                            <div className="mx-14">
+                            <div className="mx-14 text-black">
                                 <h1 className="font-poppins flex-1 text-left text-2xl">Chúng tôi làm việc để đưa UEH đến gần bạn hơn</h1>
                                 <h1 className="font-poppins flex-1 text-left text-2xl">– Bạn hiểu UEH hơn, UEH hiểu bạn hơn.</h1>
                             </div>
